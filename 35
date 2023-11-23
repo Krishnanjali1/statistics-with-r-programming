@@ -1,0 +1,15 @@
+library(reshape2)
+order_dat=var[order(var$weight),]
+last=tail(order_dat,6)
+print(last)
+
+melted_data=melt(var,id.vars=c("Chick","Time","Diet"))
+mean_weight=dcast(melted_data,Diet~variable,fun.aggregate = mean)
+print(mean_weight)
+
+x<-function(y){
+  uni<-unique(y)
+  uni[which.max(tabulate(match(y,uni)))]
+}
+mode_weight<-dcast(melted_data,Diet~variable,fun.aggregate = x)
+print(mode_weight)
