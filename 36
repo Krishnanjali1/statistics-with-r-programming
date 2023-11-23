@@ -1,0 +1,8 @@
+boxplot(var$weight~var$Diet,main="Weight Grouped by Diet",xlab="Weight",
+        ylab="Diet",col="violet")
+
+hist(var$weight[var$Diet==1],main="Histogram of weight in diet-1",xlab="weight",
+     ylab="Diet",col="orange")
+
+plot(var$weight,var$Time,col=as.numeric(var$Diet),xlab="Time",ylab="Weight",
+     main="Scatter plot of weight vs Time",pch=as.numeric(var$Diet))
