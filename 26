@@ -1,0 +1,11 @@
+d=airquality
+print(d)
+res=is.data.frame(airquality)
+print(res)
+
+ord=subset(airquality[order(airquality$Ozone,airquality$Solar.R),])
+print(ord)
+
+x=subset(d,select=-c(Solar.R,Wind))
+print(x)
+print(d)
