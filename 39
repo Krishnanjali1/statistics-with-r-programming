@@ -1,0 +1,46 @@
+df<-USArrests
+print(df)
+relation<-lm(df)
+summary(relation) #to find relation
+print(nrow(df)) #find no of rows
+
+large<-df[which.max(df$Rape),]
+print(large) #large rape rate
+
+crime<-df[which.max(df$Murder),]
+print(crime) #max murder
+
+mur<-df[which.min(df$Murder),]
+print(mur) #min murder
+
+#correlation
+
+correlation<-cor(df)
+print(correlation)
+df<-USArrests
+print(df)
+
+#median
+med<-median(df$Assault)
+print(med)
+assl<-df[df$Assault>med,]
+print(assl)
+
+#25%
+x<-25/sum(df$Murder)*100
+print(x)
+murd<-df[df$Murder<x,]
+print(murd)
+
+#histogram & density
+hist(df$Murder,main="HISTOGRAM",xlab="Murder",ylab="frequency",col="blue")
+d<-density(df$Murder)
+plot(d,main="DENSITY PLOT",col="green")
+
+#plot
+colour<-df$Assault/max(df$Assault)
+c<-colorRampPalette(c("blue","red"))(length(df$Assault))
+plot(df$UrbanPop,USArrests$Murder,col=c[order(colour)],pch=16)
+
+#barplot
+barplot(df$Murder,xlab="murder rate",ylab="frequency",main="BAR PLOT",col="purple")
