@@ -1,0 +1,12 @@
+var<-ChickWeight
+print(var)
+r<-lm(weight~Time+Diet,data=var)
+summary(r)
+
+lv<-data.frame(Time=10,Diet=factor(1))
+p<-predict(r,lv)
+print(p)
+
+actual_weight<-var$weight[var$Time== 10 & var$Diet==1]
+prediction_error<-actual_weight-p
+print(prediction_error)
