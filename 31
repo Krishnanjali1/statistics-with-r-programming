@@ -1,0 +1,10 @@
+library(modeest)
+x<-c(90, 50, 70, 80, 70, 60, 20, 30, 80, 90, 20) 
+print(mean(x))
+print(median(x))
+print(mfv(x))
+z<-unique(x)
+c<-sort(z,decreasing = TRUE)[2]
+print(c)
+k<-sort(z)[3]
+print(k)
